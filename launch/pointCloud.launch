@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="filename" default="0219_02" />
+
+    <arg name="input_path" default="/home/crange/datas/bagfiles/$(arg filename).bag" />
+    <arg name="output1_path" default="/home/crange/datas/bagfiles/$(arg filename)_new.bag" />
+
+    <node pkg="data_bridge" type="pointCloud_bridge" name="pointCloud_bridge" output="screen" args="$(arg input_path) $(arg output1_path)" />
+    
+</launch>

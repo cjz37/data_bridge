@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="filename" default="car-0" />
+
+    <arg name="input_path" default="/home/crange/datas/bagfiles/$(arg filename).bag" />
+    <arg name="output1_path" default="/home/crange/datas/bagfiles/odometry_loc.txt" />
+    <arg name="output2_path" default="/home/crange/datas/bagfiles/synced.txt" />
+
+    <node pkg="data_bridge" type="ins_bridge" name="ins_bridge" output="screen" args="$(arg input_path) $(arg output1_path) $(arg output2_path)" />
+    <node pkg="data_bridge" type="ins_synce" name="ins_synce" output="screen" args="$(arg input_path) $(arg output1_path) $(arg output2_path)" />
+    
+</launch>
